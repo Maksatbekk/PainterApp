@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0"
+            prefWidth="605.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+    <left>
+        <VBox maxWidth="-Infinity" spacing="8.0" BorderPane.alignment="CENTER">
+            <children>
+                <TitledPane fx:id="DrawMenu" text="Drawing Color">
+                    <content>
+                        <VBox spacing="8.0">
+                            <children>
+                                <RadioButton fx:id="blackRadioButton" mnemonicParsing="false"
+                                             onAction="#colorRadioButtonSelected" selected="true" text="Black">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="colorToggleGroup"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="redRadioButton" mnemonicParsing="false"
+                                             onAction="#colorRadioButtonSelected" text="Red" textFill="#f20f0f"
+                                             toggleGroup="$colorToggleGroup">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="greenRadioButton" mnemonicParsing="false"
+                                             onAction="#colorRadioButtonSelected" text="Green" textFill="#0dd017"
+                                             toggleGroup="$colorToggleGroup">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="blueRadioButton" mnemonicParsing="false"
+                                             onAction="#colorRadioButtonSelected" text="Blue" textFill="#1d12f5"
+                                             toggleGroup="$colorToggleGroup">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </RadioButton>
+                            </children>
+                        </VBox>
+                    </content>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TitledPane>
+                <TitledPane fx:id="PenSize" lineSpacing="8.0" text="Pen Size">
+                    <content>
+                        <VBox spacing="8.0">
+                            <children>
+                                <RadioButton fx:id="smallRadioButton" lineSpacing="4.0" mnemonicParsing="false"
+                                             onAction="#sizeRadioButtonSelected" text="Small">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="sizeToggleGroup"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="mediumRadioButton" mnemonicParsing="false"
+                                             onAction="#sizeRadioButtonSelected" prefHeight="20.0" prefWidth="87.0"
+                                             selected="true" text="Medium" toggleGroup="$sizeToggleGroup">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="largeRadioButton" mnemonicParsing="false"
+                                             onAction="#sizeRadioButtonSelected" text="Large"
+                                             toggleGroup="$sizeToggleGroup">
+                                    <font>
+                                        <Font size="13.0"/>
+                                    </font>
+                                </RadioButton>
+                                <Button fx:id="undoRadioButton" lineSpacing="4.0" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onAction="#undoButtonPressed" prefHeight="28.0"
+                                        prefWidth="86.0" text="Undo">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" top="4.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="clearRadioButton" maxWidth="1.7976931348623157E308"
+                                        mnemonicParsing="false" onAction="#clearButtonPressed" prefHeight="26.0"
+                                        prefWidth="87.0" text="Clear">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </content>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TitledPane>
+            </children>
+            <BorderPane.margin>
+                <Insets right="8.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </left>
+    <center>
+        <Pane fx:id="drawingAreaPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              onMouseDragged="#drawingAreaMouseDragged" prefHeight="398.0" prefWidth="468.0"
+              BorderPane.alignment="CENTER"/>
+    </center>
+</BorderPane>
